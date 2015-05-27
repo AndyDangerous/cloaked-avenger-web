@@ -1,0 +1,37 @@
+<div class="col-md-7">
+  <h2 class="featurette-heading">Example 1.</h2>
+  <p class="lead">The map's zoom and center values are bound.</p>
+
+  <div class="row form-group">
+    <div class="col-md-6">
+      <label for="zoom" class="control-label">Zoom</label>
+      <div class="input-group">
+        {{input value=zoom id="zoom" classNames="form-control"}}
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" {{action "increaseZoom"}}>+</button>
+          <button class="btn btn-default" type="button" {{action "decreaseZoom"}}>-</button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+  <div class="row form-group">
+    <div class="col-md-6">
+      <label for="lat" class="control-label">Lat</label>
+      <div class="input-group">
+        {{input value=lat classNames="form-control" id="lat"}}
+        <span class="input-group-addon">º</span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+    <div class="col-md-6">
+      <label for="lng" class="control-label">Lng</label>
+      <div class="input-group">
+        {{input value=lng classNames="form-control" id="lng"}}
+        <span class="input-group-addon">º</span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+
+</div>
+<div class="col-md-5" style="height:500px">
+  {{leaflet-map zoom=zoom center=center}}
+</div>

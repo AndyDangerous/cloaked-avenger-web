@@ -1,5 +1,7 @@
 {
   "predef": [
+    "L",
+    "EmberLeaflet",
     "document",
     "window",
     "-Promise"

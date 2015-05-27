@@ -17,4 +17,19 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-module.exports = app.toTree();
+// module.exports = app.toTree();
+app.import(app.bowerDirectory + '/bootstrap/dist/js/bootstrap.js');
+app.import(app.bowerDirectory + '/bootstrap/dist/css/bootstrap.css');
+
+app.import(app.bowerDirectory + '/leaflet-dist/leaflet.css');
+app.import(app.bowerDirectory + '/leaflet-dist/leaflet.js');
+
+var mergeTrees = require('broccoli-merge-trees');
+var pickFiles = require('broccoli-static-compiler');
+var extraAssets = pickFiles(app.bowerDirectory + '/bootstrap/dist/fonts',{
+    srcDir: '/',
+    files: ['**/*'],
+    destDir: '/fonts'
+});
+
+module.exports = mergeTrees([app.toTree(), extraAssets]);
